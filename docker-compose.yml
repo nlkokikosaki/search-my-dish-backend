@@ -1,19 +1,21 @@
 version: "3"
 
 services:
-  serve:
+  backend:
     build:
       context: .
-      dockerfile: './Dockerfile'
-    container_name: search-my-dish-backend
+      dockerfile: './backend/Dockerfile'
+    container_name: backend
     ports:
       - '8088:8088'
     depends_on:
       db:
         condition: service_healthy
+    volumes:
+      - ./backend:/backend
     environment:
-      - DATABASE_URL=postgres://admin:password@db:5432/postgres
-    command: /bin/sh -c "diesel setup && cargo watch -x run "
+      - DATABASE_URL=postgres://root:password@db:5432/searchmydish
+    command: /bin/sh -c "diesel migration run && cargo watch -x run "
     tty: true
 
   db:
@@ -22,9 +24,9 @@ services:
       - '5432:5432'
     container_name: postgresdb
     environment:
-      POSTGRES_USER: admin
+      POSTGRES_USER: root
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: postgres
+      POSTGRES_DB: searchmydish
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 10s
