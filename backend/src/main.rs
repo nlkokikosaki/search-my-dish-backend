@@ -13,7 +13,7 @@ use diesel::RunQueryDsl;
 
 #[get("/")]
 async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
+    HttpResponse::Ok().body("Hello world!!")
 }
 
 #[get("/dishes/{id}")]
@@ -41,7 +41,7 @@ async fn main() -> std::io::Result<()> {
             .service(get)
             .service(hello)
     })
-    .bind("0.0.0.0:8088")?
+    .bind("0.0.0.0:8080")?
     .run()
     .await
 }
