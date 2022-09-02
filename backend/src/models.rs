@@ -1,11 +1,14 @@
-use chrono::{DateTime, Utc};
-use crate::schema::dishes;
-use serde::{Deserialize, Serialize};
+use serde::Serialize;
 
-#[derive(Queryable, Deserialize, Serialize)]
-pub struct Dish {
-   pub name: String,
-   pub image: String,
-   pub created_at: DateTime<Utc>,
-   pub content: String,
+#[derive(Queryable, Serialize)]
+pub struct Dishes {
+   id: i32,
+   name: String,
+   image: Option<String>,
+   content: Option<String> 
+}
+
+#[derive(Queryable, Serialize)]
+pub struct CountDishes {
+   count: i32
 }

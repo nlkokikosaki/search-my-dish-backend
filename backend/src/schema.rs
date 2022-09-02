@@ -1,9 +1,11 @@
-table! {
+// @generated automatically by Diesel CLI.
+
+diesel::table! {
     dishes (id) {
         id -> Int4,
-        name -> Text,
-        created_at -> Nullable<Timestamp>,
-        image -> Nullable<Text>,
-        content -> Nullable<Text>,
+        name -> Varchar,
+        created_at -> Nullable<Date>,
+        image -> Nullable<Varchar>,
+        content -> Nullable<Varchar>,
     }
 }

@@ -11,8 +11,6 @@ pub fn establish_connection() -> Pool {
     std::env::set_var("RUST_LOG", "actix_web=debug");
     let database_url = std::env::var("DATABASE_URL")
         .expect("DATABASE_URL must be set");
-    // PgConnection::establish(&database_url)
-    //     .expect(&format!("Error connecting to {}", database_url))
 
     // actix用に db connection pool を作成
     let manager = ConnectionManager::<PgConnection>::new(database_url);
