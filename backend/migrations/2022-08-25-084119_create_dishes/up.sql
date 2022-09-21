@@ -4,21 +4,334 @@ CREATE TABLE IF NOT EXISTS dishes
     id SERIAL NOT NULL,
     name VARCHAR(100) NOT NULL,
     created_at DATE DEFAULT CURRENT_DATE,
-    image         VARCHAR(100),
+    image         VARCHAR(300),
     content       VARCHAR(100),
     PRIMARY KEY (id)
 );
 
 INSERT INTO dishes (name, image, content) VALUES 
-('コンビニ弁当', 'image1.webp', '食べ過ぎ注意'),
-('牛丼', 'image2.webp', 'どこ派？'),
-('カツ丼', 'image3.webp', '作るとなると大変'),
-('海鮮丼', 'image4.webp', '意外とお店がなくて困る'),
-('ハンバーグ', 'image5.webp', '王道ファミレス'),
-('ステーキ', 'image6.webp', '王道ファミレス'),
-('オムライス', 'image7.webp', 'ふわとろかしっかり焼きか'),
-('やきそば', 'image8.webp', 'やきそば弁当美味しいよ'),
-('カップ麺', 'image9.webp', '食べ過ぎ注意'),
-('パスタサラダ', 'image10.webp', 'たまにはヘルシー路線で'),
-('うどん', 'image11.webp', '冷凍うどんは常備しとくと便利'),
-('ラーメン', 'image12.webp', '味噌');
+-- 丼物
+(
+    '牛丼',
+    'https://2.bp.blogspot.com/-8e0uXTq3_kY/VIhO71OvUrI/AAAAAAAApjs/J9lzC2aJE6c/s800/food_gyudon.png',
+    ''
+),
+(
+    'カツ丼',
+    'https://3.bp.blogspot.com/-3cbr-AuzCu8/UchCAUFclzI/AAAAAAAAVH8/qxK8xjroHWw/s800/food_katsudon.png',
+    ''
+),
+(
+    '親子丼',
+    'https://3.bp.blogspot.com/-UqtZR8_c_XM/UgSMG5sykDI/AAAAAAAAW8Q/fYu0lx3bLo0/s800/food_oyakodon.png',
+    ''
+),
+(
+    '海鮮丼',
+    'https://2.bp.blogspot.com/-oCX6bR11MOo/Udy6pCVBgtI/AAAAAAAAWKI/W_NP_y8oOaE/s800/food_kaisendon.png',
+    ''
+),
+(
+    '中華丼',
+    'https://4.bp.blogspot.com/-9Hc1u_NsbUA/Vwe_DFR2e-I/AAAAAAAA5nQ/5zfiW8H07EIt9ABlhf8Zit40ARh6FVOhg/s800/food_chuukadon.png',
+    ''
+),
+(
+    '豚丼',
+    'https://1.bp.blogspot.com/-ZwMp9KerB-0/XRHQ2s89EFI/AAAAAAABTaY/i1QNxsIg2D8wHRN3M-vDyDTbefi3mLi_wCLcBGAs/s800/food_butadon_obihiro.png',
+    ''
+),
+(
+    '天丼',
+    'https://4.bp.blogspot.com/-4eXAuXime2Q/UgSMI54cAPI/AAAAAAAAW9E/gP9poPlIl7I/s800/food_tendon.png',
+    ''
+),
+(
+    'ローストビーフ丼',
+    'https://3.bp.blogspot.com/-wnCZNBL6nlw/WBHGn6lYXoI/AAAAAAAA_ME/AAbrwKepTTUVqVv8enHHvhSuPYybNuy7gCLcB/s800/food_roast_beef_don.png',
+    ''
+),
+(
+    '天津飯',
+    'https://1.bp.blogspot.com/-a0UCS18DBkE/XmHk2hPwD2I/AAAAAAABXvs/mPI2h9TQHI0E7IMH_sHrERIJ-2qnCwkqQCNcBGAsYHQ/s1600/food_kanitama_tenshinhan.png',
+    ''
+),
+-- おがず
+(
+    'ハンバーグ',
+    'https://4.bp.blogspot.com/-mjz6nmo2Rgk/U6llP0sNOnI/AAAAAAAAhts/nFarNUiSz0o/s800/food_wafu_hamburg.png',
+    ''
+),
+(
+    'ステーキ',
+    'https://4.bp.blogspot.com/-gx6QbZY-3Yg/VkxLqf8doaI/AAAAAAAA0o8/me9Ppp3rhBQ/s800/food_beefsteak.png',
+    ''
+),
+(
+    'アジフライ',
+    'https://4.bp.blogspot.com/-3H6rJBlvI54/VbnReVIxjjI/AAAAAAAAwME/6DSbg3e68dE/s800/food_aji_fry.png',
+    ''
+),
+(
+    'チキン南蛮',
+    'https://3.bp.blogspot.com/--35no82svGE/VbnRejSTzHI/AAAAAAAAwMA/qPNTeTvKkwA/s800/food_chicken_nanban.png',
+    ''
+),
+(
+    '生姜焼き',
+    'https://4.bp.blogspot.com/-D6jzAxWurH4/Us_Ncid_yRI/AAAAAAAAdJc/nJov9y0LeAM/s800/food_syougayaki.png',
+    ''
+),
+(
+    '焼き鳥',
+    'https://3.bp.blogspot.com/-P9ghXBce_Es/Uku_T8BznjI/AAAAAAAAYyg/9bzAzDcnHRU/s800/yakitori_negima.png',
+    ''
+),
+(
+    '焼き魚',
+    'https://3.bp.blogspot.com/-RHXo5el1fnw/UUhH_OqS0tI/AAAAAAAAO64/DMTjZX3TdG8/s1600/wasyoku_yakizakana.png',
+    ''
+),
+(
+    '肉じゃが',
+    'https://2.bp.blogspot.com/-4viih0fVfgU/UUhH6b8c1kI/AAAAAAAAO5Q/ATm55zoB0qI/s1600/bousai_nikujaga.png',
+    ''
+),
+(
+    'コロッケ',
+    'https://4.bp.blogspot.com/-CKT3IlL893Q/WUdYU5tBsFI/AAAAAAABE6g/XAVzzRFz3SwrVqcB4huwD4lbQJIQnEg4QCLcBGAs/s800/food_korokke.png',
+    ''
+),
+(
+    '餃子',
+    'https://1.bp.blogspot.com/-9f4YcWAPTBI/Xbo7HgRcxfI/AAAAAAABVy4/LDJhEVMjyFIsz5z6XZp-_OibrBUBqfjtwCNcBGAsYHQ/s1600/food_gyouza_enban.png',
+    ''
+),
+(
+    'ジンギスカン',
+    'https://2.bp.blogspot.com/-PtiUwbxAtNc/U5hUb0EU7UI/AAAAAAAAhJY/V0XJK0hKoEk/s800/food_jingisukan_genghis_khan.png',
+    ''
+),
+(
+    '唐揚げ',
+    'https://3.bp.blogspot.com/-S03MTLXiKuQ/Voze7eiotdI/AAAAAAAA2d8/emN0bOB9_cY/s800/food_karaage.png',
+    ''
+),
+(
+    '焼き肉',
+    'https://1.bp.blogspot.com/-iNgeH_788Xg/XkZc3IM0EHI/AAAAAAABXQo/-KKL7UOBQZ49XORoXf8F90U9H5v2iJv3wCNcBGAsYHQ/s1600/food_niku_yakiniku_set.png',
+    ''
+),
+(
+    '麻婆豆腐',
+    'https://2.bp.blogspot.com/-1bcJQml5DDM/WqihtdK3aGI/AAAAAAABK1U/JL7oH9a55vcI_5ZhrT__vNOJRSt-DTBFgCLcBGAs/s800/food_mabo_doufu.png',
+    ''
+),
+(
+    '酢豚',
+    'https://1.bp.blogspot.com/-BZT3eddbaq4/VCka9fvjd_I/AAAAAAAAm-s/NhjKfMhqCLk/s800/food_subuta.png',
+    ''
+),
+(
+    'かつ',
+    'https://4.bp.blogspot.com/-kyqpDuvwLoo/UgSMJxVBvQI/AAAAAAAAW9U/Hp1LLHVGwl0/s800/food_tonkatsu.png',
+    ''
+),
+(
+    '刺し身',
+    'https://1.bp.blogspot.com/-GAhOC9SEBa4/Xbo7JJCuvDI/AAAAAAABVzM/A3FsXsqNXpYI83wqGcODvHaA2XJJsNPmACNcBGAsYHQ/s1600/food_sushi_funamori.png',
+    ''
+),
+(
+    '馬刺し',
+    'https://4.bp.blogspot.com/-icXRyN7am04/WOdDihXjelI/AAAAAAABDkE/NTl8PStOaNYnqk87b71FKONAQsCxpoWUQCLcB/s800/food_basashi.png',
+    ''
+),
+-- ご飯系
+(
+    'コンビニ弁当',
+    'https://2.bp.blogspot.com/-2Gu2_SyVSw0/VOsXD5fY3UI/AAAAAAAAr0I/PATQsRnkGKk/s800/obentou_conbini.png',
+    ''
+),
+(
+    '弁当',
+    'https://2.bp.blogspot.com/-88SqS3pAFXc/VCka8aZwF4I/AAAAAAAAm-U/xEls_G7gl84/s800/food_obentou_makunouchi.png',
+    ''
+),
+(
+    '定食',
+    'https://3.bp.blogspot.com/-k5kNYHe4C1E/VNgY2vm7mpI/AAAAAAAArfA/xcz1D7rDj10/s800/teisyoku_hiyayakko.png', 
+    ''
+),
+(
+    'オムライス',
+    'https://2.bp.blogspot.com/-i9rqYznm5SA/UzKmkT1kEVI/AAAAAAAAelI/HU1M-5v6K18/s800/food_omelet.png',
+    ''
+),
+(
+    '寿司',
+    'https://2.bp.blogspot.com/-RB1mDuQvGkI/USyJ0W9QfKI/AAAAAAAAObc/Idip0N8CFUw/s1600/nigirizushi_moriawase.png',
+    ''
+),
+(
+    'カレー',
+    'https://1.bp.blogspot.com/-UbN0yy2MMrM/XaKa5_0WWUI/AAAAAAABVj8/-YGIDDkzgPUkGRe9odTWisMXeIZBTK9wgCNcBGAsYHQ/s1600/food_curryrice_white.png',
+    ''
+),
+(
+    '炒飯',
+    'https://1.bp.blogspot.com/-S3T_XHZZ5KM/VtofWbf_QZI/AAAAAAAA4W4/mHIrdYAnpdM/s800/cha-han1.png',
+    ''
+),
+(
+    'お茶漬け',
+    'https://1.bp.blogspot.com/-dvc-L49jPOM/WoUQWYTLC2I/AAAAAAABKZg/jJBXgHVwRI0kwDrB_H7iT13KehKeduFSwCPcBGAYYCw/s800/food_ochaduke.png',
+    ''
+),
+(
+    'おにぎり',
+    'https://1.bp.blogspot.com/-XmjmirP9Q6U/UylAPBN4pxI/AAAAAAAAeQc/SqEXmJ-Tnk8/s800/onigiri_mentaiko.png',
+    ''
+),
+(
+    '釜飯',
+    'https://3.bp.blogspot.com/-xsOtr6bxvvc/Us_MQRqQW4I/AAAAAAAAdDo/CrcuN9mfnCY/s800/kamameshi.png',
+    ''
+),
+(
+    'うな重',
+    'https://2.bp.blogspot.com/-sr9pwxyrHe0/Udy6rQtaYtI/AAAAAAAAWLA/JdGsepEaIuw/s800/food_unajyu.png',
+    ''
+),
+-- その他
+(
+    'ピザ',
+    'https://3.bp.blogspot.com/-QRErz305OBA/UgSMHMmwbGI/AAAAAAAAW8U/UxiX8qVnYYQ/s800/food_pizza.png',
+    ''
+),
+(
+    'サンドウィッチ',
+    'https://1.bp.blogspot.com/-e_EAkZr1_BU/XexrDvRvEwI/AAAAAAABWlA/gh58TlEEl70LEVWeB6ZTxHcogtLUMUfTACNcBGAsYHQ/s1600/obentou_sandwich.png',
+    ''
+),
+(
+    'ハンバーガー',
+    'https://2.bp.blogspot.com/-pEL1myatldE/WD_cdcLzHfI/AAAAAAABAGs/oK68pRmi0ZI7c36YZbeyqq0Gn5QPBLNcgCLcB/s800/food_hamburger.png',
+    ''
+),
+(
+    'しゃぶしゃぶ',
+    'https://1.bp.blogspot.com/-k9eY1pajtrY/UMaem-XKLUI/AAAAAAAAH1k/iRPEsyeP-Fg/s1600/shabushabu.png',
+    ''
+),
+(
+    '鍋',
+    'https://1.bp.blogspot.com/-jXIyJNC8ofg/XTPoHxzHSPI/AAAAAAABTwQ/pZCjTsWrx_UZ_7q5kvMHS1KHGdNAveRDACLcBGAs/s800/food_nabe_mizutaki.png',
+    ''
+),
+(
+    'シチュー',
+    'https://3.bp.blogspot.com/-MtR3FkKxn5s/UgSL_nm4P8I/AAAAAAAAW5k/6aTH4lR6Sfo/s800/food_creamstew.png',
+    ''
+),
+(
+    'お好み焼き',
+    'https://1.bp.blogspot.com/-MsI-cwG9LmY/Xbo7IE3judI/AAAAAAABVzA/qJKp2sMiCckuEn3KP1yzX79no-fWyq8DgCNcBGAsYHQ/s1600/food_okonomiyaki_kyabetsuyaki_decoration.png',
+    ''
+),
+(
+    'たこ焼き',
+    'https://3.bp.blogspot.com/-lCXpTHWwsX8/VNH6plhYL_I/AAAAAAAArT8/HN85RSAuIZE/s800/takoyaki_fune.png',
+    ''
+),
+(
+    'もんじゃ焼き',
+    'https://3.bp.blogspot.com/-EC0h0X9v3Mg/Us_MA7CmtgI/AAAAAAAAc_k/1OEjgdR9HIM/s800/monja_yaki.png',
+    ''
+),
+(
+    'すき焼き',
+    'https://1.bp.blogspot.com/-m42kXAuvYBo/UZ2U2fGHxbI/AAAAAAAAToU/NhzLPZ7vvTg/s800/food_sukiyaki.png',
+    ''
+),
+(
+    'チーズタッカルビ',
+    'https://1.bp.blogspot.com/-BPYlWZsTAiM/WowAvzDI1dI/AAAAAAABKdY/yKtTD2a-xScQ0sHle3Hmoilfj-j0MJl8QCLcBGAs/s800/food_cheese_takkarubi.png',
+    ''
+),
+(
+    'アヒージョ',
+    'https://3.bp.blogspot.com/-AnQ9hXb3QHM/VUIJvJNx17I/AAAAAAAAtYk/HvBTvQwNSsM/s800/food_ajillo_ahijo.png',
+    ''
+),
+(
+    '手料理',
+    'https://1.bp.blogspot.com/-DQttI4Ob2io/UnyHTYtsf7I/AAAAAAAAahY/QTdWP57_SVs/s800/cooking_papa.png',
+    ''
+),
+-- 麺類
+(
+    'やきそば',
+    'https://4.bp.blogspot.com/-bb7He-FWYUY/U-8GWDi42gI/AAAAAAAAk3g/FfN2-6PxIbU/s800/food_yakisoba.png',
+    ''
+),
+(
+    'オムそば',
+    'https://3.bp.blogspot.com/-EAlmQsmNDec/WUdYXNJau9I/AAAAAAABE7A/p00qx2Iz_HQaf_t_Dp9lfpmKWlptY0j0wCLcBGAs/s800/food_omusoba.png',
+    ''
+),
+(
+    'ちゃんぽん',
+    'https://3.bp.blogspot.com/-Krp85bNNIpQ/VJ6XaOjO9KI/AAAAAAAAqKg/bXrfJijrnSw/s800/food_chanpon.png',
+    ''
+),
+(
+    'カップ麺',
+    'https://4.bp.blogspot.com/-xJVcKfY5IfE/WlGpPXRFNPI/AAAAAAABJlk/xkKmANa4tCIEfwxzmHmVyoO-XzRNZAk9ACLcBGAs/s800/food_cup_ramen_syouyu.png',
+    ''
+),
+(
+    'パスタサラダ',
+    'https://1.bp.blogspot.com/-jKmuEKLNrLI/WRaTJGG975I/AAAAAAABEOo/o8-x8vHUsXIEOtIlhNuHraTh_QkXLNOqgCLcB/s800/food_spaghetti_salad.png',
+    ''
+),
+(
+    'パスタ',
+    'https://3.bp.blogspot.com/-EATHViUAKVI/W_UF9KEi82I/AAAAAAABQUE/9NkBAfsB9BgWgQOa4qBb_JQl9nvozV-JgCLcBGAs/s800/food_spaghetti_bolognese_meatsauce.png',
+    ''
+),
+(
+    'つけ麺',
+    'https://4.bp.blogspot.com/-mtkfMVl0LtQ/UchCCS-swhI/AAAAAAAAVI4/OOhYOvFuTSQ/s800/food_tsukemen.png',
+    ''
+),
+(
+    '担々麺',
+    'https://3.bp.blogspot.com/-IJQMpdLo4UU/V6iHumRHQ4I/AAAAAAAA89A/O893TojwXxsoh0u1zngyBdUtugdCyI98ACLcB/s800/food_shirunashi_tantanmen.png',
+    ''
+),
+(
+    'あんかけ焼きそば',
+    'https://1.bp.blogspot.com/-fvOuX3XAR6Q/UchB_j-1NKI/AAAAAAAAVHY/9yWL6Dec5Mk/s800/food_ankake_yakisoba.png',
+    ''
+),
+(
+    '油そば',
+    'https://3.bp.blogspot.com/-ulAra8ZoOxY/WKbKazk0oQI/AAAAAAABB04/IWAtU-oO-h47by4cJC7I0GUloJRqtx2SQCLcB/s800/food_aburasoba.png',
+    ''
+),
+(
+    'うどん',
+    'https://4.bp.blogspot.com/-Zua7DqMBa_E/WCqr92t2QoI/AAAAAAAA_zE/Oq9RyTsZ1BcwwGP8IRvx1UrT-pUQOibkgCLcB/s800/food_udon_kake.png',
+    ''
+),
+(
+    'そば',
+    'https://1.bp.blogspot.com/-9-MTNVGkj38/VOKwXEx5h3I/AAAAAAAArjA/AQru6NQRhhA/s800/soba_kake.png',
+    ''
+),
+(
+    'ラーメン',
+    'https://4.bp.blogspot.com/-tx51nhX1oe0/UrlnHHMna-I/AAAAAAAAcN8/cBOiw8055XI/s800/ramen_shio.png',
+    ''
+);

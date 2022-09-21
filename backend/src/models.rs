@@ -9,6 +9,6 @@ pub struct Dishes {
 }
 
 #[derive(Queryable, Serialize)]
-pub struct CountDishes {
-   count: i32
+pub struct Id {
+   id: i32,
 }
