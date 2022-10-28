@@ -3,7 +3,7 @@ extern crate diesel;
 
 use actix_cors::Cors;
 use actix_web::web::Data;
-use actix_web::{get, web, App, HttpServer, Responder, HttpResponse, Error, http::header,};
+use actix_web::{get, http::header, web, App, Error, HttpResponse, HttpServer, Responder};
 mod db;
 mod models;
 mod schema;
@@ -27,7 +27,12 @@ async fn get_dish(db: web::Data<db::Pool>, id: web::Path<i32>) -> Result<HttpRes
     let id = id.into_inner();
 
     let dish = schema::dishes::table
-        .select((schema::dishes::id, schema::dishes::name, schema::dishes::image, schema::dishes::content))
+        .select((
+            schema::dishes::id,
+            schema::dishes::name,
+            schema::dishes::image,
+            schema::dishes::content,
+        ))
         .filter(schema::dishes::id.eq(id))
         .load::<Dishes>(&conn)
         .expect("error");
@@ -36,7 +41,10 @@ async fn get_dish(db: web::Data<db::Pool>, id: web::Path<i32>) -> Result<HttpRes
 }
 
 #[get("/dishes/{ids}")]
-async fn get_dishes(db: web::Data<db::Pool>, path_ids: web::Path<String>) -> Result<HttpResponse, Error> {
+async fn get_dishes(
+    db: web::Data<db::Pool>,
+    path_ids: web::Path<String>,
+) -> Result<HttpResponse, Error> {
     // db connectionが利用可能に！
     let conn = db.get().unwrap();
     let path_ids = path_ids.into_inner();
@@ -60,8 +68,7 @@ async fn get_dishes(db: web::Data<db::Pool>, path_ids: web::Path<String>) -> Res
 async fn count(db: web::Data<db::Pool>) -> Result<HttpResponse, Error> {
     // db connectionが利用可能に！
     let conn = db.get().unwrap();
-    let count: Vec<i32> = 
-        schema::dishes::table
+    let count: Vec<i32> = schema::dishes::table
         .select(dishes::id)
         .load::<i32>(&conn)
         .expect("error");
@@ -73,17 +80,17 @@ async fn count(db: web::Data<db::Pool>) -> Result<HttpResponse, Error> {
 async fn main() -> std::io::Result<()> {
     // db moduleからestablish_connection関数をimport
     let pool = db::establish_connection();
-    HttpServer::new(move|| {
+    HttpServer::new(move || {
         App::new()
             .wrap(
                 Cors::default()
-                    .allowed_origin("http://127.0.0.1:3000")
+                    .allowed_origin("http://localhost:3000")
                     .allowed_methods(vec!["GET", "POST"])
                     .allowed_headers(vec![header::AUTHORIZATION, header::ACCEPT])
                     .allowed_header(header::CONTENT_TYPE)
                     .supports_credentials()
                     .max_age(3600),
-            )    
+            )
             .app_data(Data::new(pool.clone()))
             // .service(get_dish)
             .service(get_dishes)
