@@ -8,17 +8,11 @@ mod db;
 mod models;
 mod schema;
 use crate::models::Dishes;
-use crate::models::Id;
 use schema::dishes;
 
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
 use diesel::RunQueryDsl;
-
-#[get("/")]
-async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!!")
-}
 
 #[get("/dish/{id}")]
 async fn get_dish(db: web::Data<db::Pool>, id: web::Path<i32>) -> Result<HttpResponse, Error> {
