@@ -1,0 +1,9 @@
+.DS_Store
+.devcontainer
+.gitignore
+docker-compose.yml
+docker
+backend/.env
+backend/.env.example
+
+docker/db-data
