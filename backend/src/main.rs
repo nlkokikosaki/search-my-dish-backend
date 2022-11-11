@@ -3,7 +3,7 @@ extern crate diesel;
 
 use actix_cors::Cors;
 use actix_web::web::Data;
-use actix_web::{get, http::header, web, App, Error, HttpResponse, HttpServer, Responder};
+use actix_web::{get, http::header, web, App, Error, HttpResponse, HttpServer};
 mod db;
 mod models;
 mod schema;
