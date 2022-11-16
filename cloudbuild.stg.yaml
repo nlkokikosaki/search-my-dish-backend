@@ -18,8 +18,6 @@ steps:
   #     - '$_DEPLOY_REGION'
 
 substitutions:
-  _SERVICE_NAME: stg-search-my-dish-backend
-  _REPO_NAME: stg.search-my-dish-backend
   _DEPLOY_REGION: asia-northeast1
   _GCR_HOSTNAME: asia.gcr.io
   _DOCKER_PKG: asia-northeast1-docker.pkg.dev
