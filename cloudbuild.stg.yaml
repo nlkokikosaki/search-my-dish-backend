@@ -20,7 +20,7 @@ steps:
 substitutions:
   _DEPLOY_REGION: asia-northeast1
   _GCR_HOSTNAME: asia.gcr.io
-  _DOCKER_PKG: asia-northeast1-docker.pkg.dev
+  _DOCKER_PKG: asia-docker.pkg.dev
 
 images:
   - '$_DOCKER_PKG/$PROJECT_ID/$_REPO_NAME/$_SERVICE_NAME'
